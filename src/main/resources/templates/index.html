@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Create a separate CSS file for custom styles -->
+<title>Insert title here</title>
+<style type="text/css">
+     /* Add animation to the hero section */
+     /* Increase header size */
+.navbar-brand {
+  font-size: 30px;
+  padding: 10px;
+  height:100px;
+}
+
+.navbar-toggler {
+  font-size: 25px;
+  padding: 10px 15px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 20px;
+  padding: 10px 15px;
+  
+}
+     
+#hero {
+  background-image: url('path/to/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero .container {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add shadow effect to the feature items */
+.feature-item {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.feature-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect to the navigation links */
+.navbar-nav .nav-link {
+  transition: color 0.3s ease-in-out;
+  
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+/* Add hover effect to the primary button */
+.btn-primary {
+  transition: background-color 0.3s ease-in-out;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Add hover effect to the footer */
+footer:hover {
+  background-color: #333333;
+}
+
+footer:hover p {
+  color: #ffffff;
+}
+
+
+																.running-label {
+													      position: relative;
+													      height: 150px;
+													     
+													      background:#FFFFFF;
+													      overflow: hidden;
+													    }
+													
+													    .running-label .images-container {
+													      position: absolute;
+													      top: 0;
+													      left: 100%;
+													      display: flex;
+													      animation: slide-images 7s linear infinite;
+													    }
+													
+													    .running-label .images-container img {
+													      width: 250px;
+													      height: 150px;
+													      margin-right: 10px;
+													      border-radius:7px;
+													    }
+													
+													    @keyframes slide-images {
+													      0% {
+													        transform: translateX(0%);
+													      }
+													      100% {
+													        transform: translateX(-150%);
+													      }
+													    }
+  
+     
+</style>
+
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <img src="/image/stlogo.png" style="width: 180px; height: 80px;" alt="Custom-sized image">
+      <a class="navbar-brand" href="#">MSRTC   Where adventure awaits at every turn....!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto  ">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-4">Welcome to MSRTC Booking Services</h1>
+      <p class="lead">To Travel Is To live.</p>
+      <a href="/signup" class="btn btn-primary btn-lg" >Get Started</a>
+    </div>
+  </section>
+  
+  
+    <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="running-label">
+          <div class="images-container">
+            <img src="/image/p1.jpg" alt="Image 1">
+            <img src="/image/p2.jpg" alt="Image 2">
+            <img src="/image/p3.jpg" alt="Image 3">
+            <img src="/image/p4.jpg" alt="Image 1">
+            <img src="/image/p5.jpg" alt="Image 2">
+            <img src="/image/p6.jpg" alt="Image 3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="feature-item">
+            <i class="fas fa-cog fa-3x"></i>
+            <h3>Easy to Use</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature-item">
+            <i class="fas fa-mobile-alt fa-3x"></i>
+            <h3>Responsive Design</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature-item">
+            <i class="fas fa-star fa-3x"></i>
+            <h3>Highly Rated</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-4">
+    <p>&copy; www.msrtcbooking.com</p>
+  </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+ 
+  
+
+.payment-mode {
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+    }
+
+    .payment-mode:hover {
+      
+      background:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.7));
+    }
+  
+</style>
+</head>
+<body>
+      <div class="container   mt-5">
+    <div class="row justify-content-center  ">
+      <div class="col-md-6">
+        <div class="card   bg-secondary">
+          <div class="card-body">
+            <h5 class="card-title">Payment Information</h5>
+            <form>
+              <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="expirationDate">Expiration Date</label>
+                  <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY">
+                </div>
+                <div class="col">
+                  <label for="cvv">CVV</label>
+                  <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="cardHolder">Card Holder Name</label>
+                <input type="text" class="form-control" id="cardHolder" placeholder="Enter card holder name">
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Pay Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="container mt-5 mb-10">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="payment-mode">
+          <img src="/image/googlepay.png" alt="Google Pay" width="100">
+          <h4>Google Pay</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="payment-mode">
+          <img src="/image/phonepay.png" alt="PhonePe" width="100">
+          <h4>PhonePe</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="payment-mode">
+          <img src="/image/paytm.png" alt="Paytm" width="100">
+          <h4>Paytm</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+   <div class="container">
+    
+      <div class="form-group">
+        <label for="dateInput">Select Date:</label>
+        <input type="date" class="form-control" id="dateInput" required>
+        <div class="invalid-feedback">Please enter a valid date (current or future date).</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   
+  </div>
+
+  <!-- Include Bootstrap JS (jQuery required) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/bootstrap.min.js"></script>
+  <script>
+    // Get the current date
+    var currentDate = new Date().toISOString().split('T')[0];
+
+    // Set the minimum date for the date picker
+    $('#dateInput').attr('min', currentDate);
+
+    // Validate the date input on form submission
+    $('form').on('submit', function(event) {
+      var dateInput = $('#dateInput').val();
+
+      if (dateInput < currentDate) {
+        event.preventDefault(); // Prevent form submission
+        $('#dateInput').addClass('is-invalid'); // Add Bootstrap's is-invalid class to display validation error
+      }
+    });
+  </script>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <style>
+        .container {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 0 auto;
+            margin-top:20px;
+            transition: box-shadow 0.3s ease-in-out;
+            text-align:center;
+        }
+
+        .container:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+     
+  
+ <form th:action="@{/cancelBooking}" method="post" id="deletebyid">
+    <input type="hidden" name="bookingId" th:value="${booking.bookingId}" />
+      
+  <div class="container">
+    <h1>Show User All Booking Details</h1><br>
+
+    <h4>User Name: <span th:text="${user.name}"></span></h4>
+
+    <div class="table-responsive">
+        <table class="table" >
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Booking ID</td>
+                <td><span th:text="${booking.bookingId}"></span></td>
+            </tr>
+            <tr>
+                <td>From</td>
+                <td><span th:text="${booking.from}"></span></td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td><span th:text="${booking.to}"></span></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><span th:text="${booking.date}"></span></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><span th:text="${booking.time}"></span></td>
+            </tr>
+            <tr>
+                <td>Select Comfort Level</td>
+                <td><span th:text="${booking.comfortLevel}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+                        <!-- your table code here -->
+     <button class="btn btn-danger" type="button" onclick="submitForm()">Cancel Booking</button>
+        
+      <script>
+           function submitForm() {
+           document.getElementById("deletebyid").submit();
+           }
+      </script>
+    
+    
+         </div>
+ </form> 
+            
+      
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>this is signup page</title>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+ <link rel="stylesheet" type="text/css" href="/css/signup.css?v=12345">
+<style>
+		 .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            background:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.7)), url(../image/traval-india-map.png);
+            background-size:cover;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+        }	
+         input[type="text"],[type="email"],[type="password"]{
+          
+	         
+            }
+             
+</style>
+
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     
+        <div class="container">
+          <img src="/image/stlogo.png" style="width: 180px; height: 80px;" alt="Custom-sized image">
+            <a class="navbar-brand " href="/home">MSRTC Booking Service</a>
+            
+            <div class="collapse navbar-collapse ml-5" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/help">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+       
+     
+ <div class="container mt-4 mb-4" >
+        <div class="form-container custom-bg" >
+            <h2  class="text-center">Registration Form</h2>
+            
+            <th:block th:if="${session.msg}">
+             <p class= "text-center fs-ls">[[${session.msg}]]</p>
+            </th:block>
+            
+            <form class="d-flex flex-column justify-content-center align-items-center" th:action="@{/showdetails}"  method="post"  th:object="${user}" >
+              
+                <div class="form-group ">
+                    
+                    <input type="text" class="custom-input" id="name" name="name" maxlength="40"  th:field="*{name}" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="text" class="custom-input" id="contactNo" name="contactNo" th:field="*{contactNo}" 
+                           maxlength="10" pattern="[0-9]{10}"  placeholder="Enter only 10 digit contact no." required>
+                     <div class="invalid-feedback">
+                            Please enter a 10-digit contact number.
+                     </div>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="email" class="custom-input" id="email" name="email" maxlength="40"   th:field="*{email}" placeholder="Enter your Gmail" required>
+                </div>
+                
+                <div class="form-group">
+                    
+                    <input type="password" id="password" class="custom-input" name="password" th:field="*{password}"  maxlength="15" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-group">
+                   
+                    <input type="text" class="custom-input" id="city" name="city" maxlength="25"  th:field="*{city}" placeholder="Enter your city " required>
+                </div>
+                
+                <div class="form-group">
+                   
+                    <input type="text" class="custom-input" id="state" name="state" maxlength="25" th:field="*{state}" placeholder="Enter your state" required>
+                </div>
+                <div class="form-group">
+                   
+                    <textarea  class="custom-input" id="address" name="currentAddress" rows="3" maxlength="75"  th:field="*{currentAddress}"  placeholder="Enter your address" required></textarea>
+                </div>
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary ">Submit</button>
+                    <button type="reset" class="btn btn-secondary ">Reset</button>
+                   
+                </div>
+            </form>
+            
+            
+            <form  th:action="@{/login} " class="d-flex align-items-center justify-content-center" >
+             
+              <button type="submit" class=" custom-input  btn btn-primary">Login</button>
+               
+            </form>
+            
+        </div>
+    </div>
+  
+  
+   
+  
+  
+            
+  
+  
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
+    
+	 </body>
+</html>

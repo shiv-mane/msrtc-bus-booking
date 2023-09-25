@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title>home page of application using fragments</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/home.css?v=12345">
+  <style>
+    .running-label {
+      position: relative;
+      height: 150px;
+     
+      background:linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1));
+      overflow: hidden;
+    }
+
+    .running-label .images-container {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      display: flex;
+      animation: slide-images 7s linear infinite;
+    }
+
+    .running-label .images-container img {
+      width: 250px;
+      height: 150px;
+      margin-right: 10px;
+      border-radius:7px;
+    }
+
+    @keyframes slide-images {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-150%);
+      }
+    }
+  </style>
+
+</head>
+<body>
+           
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <img src="/image/stlogo.png" style="width: 180px; height: 80px;" alt="Custom-sized image">
+            <a class="navbar-brand" href="/home">MSRTC Booking Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/help">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Your page content goes here -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+           
+			
+ <section class="busimg ">
+ <br>
+   <h1   class="mt-1">Welcome In MSRTC.... </h1>
+  
+  <h2>Born to have adventures</h2> 
+  
+  
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="running-label">
+          <div class="images-container">
+            <img src="/image/p1.jpg" alt="Image 1">
+            <img src="/image/p2.jpg" alt="Image 2">
+            <img src="/image/p3.jpg" alt="Image 3">
+            <img src="/image/p4.jpg" alt="Image 1">
+            <img src="/image/p5.jpg" alt="Image 2">
+            <img src="/image/p6.jpg" alt="Image 3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ </section>
+      
+</body>
+</html>

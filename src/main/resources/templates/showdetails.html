@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+     
+    
+    <div class="container">
+    <h2>User Details</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td><span th:text="${user.name}"></span></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><span th:text="${user.email}"></span></td>
+            </tr>
+            <tr>
+                <th>Contact No</th>
+                <td><span th:text="${user.contactNo}"></span></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><span th:text="${user.city}"></span></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><span th:text="${user.state}"></span></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><span th:text="${user.currentAddress}"></span></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><span th:text="${user.password}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="booking">Book Now</a>
+</div>
+    
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

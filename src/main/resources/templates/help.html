@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>this is help page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/help.css">
+    
+     <style>
+        .help-card {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s;
+           background:linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3));
+           font-size:18px;
+        }
+
+        .help-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+          <img src="/image/stlogo.png" style="width: 180px; height: 80px;" alt="Custom-sized image">
+            <a class="navbar-brand" href="/home">MCRTC Booking Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/help">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+ 
+ <div class="container justify-content-center align-items-center ">
+			        <h1></h1>
+			        <div class="card help-card justify-content-center align-items-center">
+			            <div class="card-body ">
+			                <h5 class="card-title text-center">How to book a bus ticket?</h5>
+			                <p class="card-text text-center">To book a bus ticket, follow these steps:</p>
+			                <ol class=" align-items-center">
+			                    <li>Go to our website and click on the "Book Now" button.</li>
+			                    <li>Select your desired source and destination locations.</li>
+			                    <li>Choose the date and time of travel.</li>
+			                    <li>Select the number of passengers.</li>
+			                    <li>Click on the "Search Buses" button.</li>
+			                    <li>Choose a bus from the available options.</li>
+			                    <li>Provide passenger details and make the payment.</li>
+			                    <li>Your bus ticket will be confirmed, and you'll receive a confirmation email.</li>
+			                </ol>
+			            </div>
+			        </div>
+			
+
+			<div class="card help-card mt-3  justify-content-center align-items-center" >
+			            <div class="card-body">
+			                <h5 class="card-title">What payment methods do you accept?</h5>
+			                <p class="card-text">We accept the following payment methods:</p>
+			                <ul>
+			                    <li>Credit cards (Visa, Mastercard, American Express)</li>
+			                    <li>Debit cards (Visa, Mastercard)</li>
+			                    <li>Net banking</li>
+			                    <li>UPI (Unified Payments Interface)</li>
+			                    <li>Mobile wallets (Paytm, PhonePe, Google Pay, etc.)</li>
+			                </ul>
+			            </div>
+			     </div>
+        
+        
+        <div class="card help-card mt-3 mb-5 justify-content-center align-items-center">
+            <div class="card-body  text-center">
+                <h5 class="card-title  ">Contact Information</h5>
+                <p class="card-text">
+                    For any further assistance or queries, you can contact our support team:<br>
+                    Phone: <span class="text-primary">1800-123-4567</span><br>
+                    Email: <span class="text-primary">support@busbookingagency.com</span><br>
+                    Address: <span class="text-primary">123, Main Street, City, Country</span>
+                </p>
+            </div>
+        </div>
+    <!-- Your page content goes here -->
+</div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
+</body>
+</html>
+
+
+
+
+

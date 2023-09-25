@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>this is Booking page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/booking.css">
+
+<style>
+        .form-control {
+            display: inline;
+            border-bottom: 1px solid #ccc;
+            background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%);
+        }
+        
+        .form-control:hover {
+            background: linear-gradient(to bottom, #f9f9f9 0%, #e6e6e6 100%);
+        }
+        
+	     .carousel-item {
+		      text-align: center;
+		    }
+		
+										    .running-label {
+										      height:50px;
+										      display: inline-block;
+										      background:orange;
+										      color:white;
+										      padding: 10px 20px;
+										      font-size: 18px;
+										      border-radius: 20px;
+										      animation: runningLabelAnimation 4s infinite;
+										    }
+										
+										    @keyframes runningLabelAnimation {
+										      0% { transform: translateX(80%); }
+										      80% { transform: translateX(-100%); }
+										    }
+										   
+	.image-container {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 10px 5px rgba(0, 0,0, 0.5);
+      border-radius:5px;
+      
+    }
+
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s;
+     
+    }
+
+    .image-container:hover img {
+      transform: scale(1.1);
+      
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-overlay:hover {
+      opacity: 1;
+    }
+
+    .image-overlay a {
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animated-image {
+      animation: fadeIn 1s;
+    }
+								    
+										    
+										    
+										    
+    </style>
+    
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+     
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <img src="/image/stlogo.png" style="width: 180px; height: 80px;" alt="Custom-sized image">
+            <a class="navbar-brand " href="/home">MSRTC Booking Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/help">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Your page content goes here -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+         
+  <div class="container">
+        <h1>Booking Now</h1>
+        <form th:action="@{/postbookingdetails}" method="post"  th:object="${booking}"  >
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" class="form-control" id="from" maxlength="40" name="from" th:field="*{from}" required>
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" class="form-control" id="to" name="to" maxlength="40" th:field="*{to}" required>
+            </div>
+            <div class="form-group">
+                <label for="dateInput">Date:</label>
+                
+                <input type="date" class="form-control" id="dateInput" name="date" th:field="*{date}"   min="<?= date('Y-m-d') ?>" required>
+               
+            </div>
+            
+ 				  <!-- Include Bootstrap JS (jQuery required) -->
+				  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+				  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/bootstrap.min.js"></script>
+				  <script>
+				    // Get the current date
+				    var currentDate = new Date().toISOString().split('T')[0];
+				
+				    // Set the minimum date for the date picker
+				    $('#dateInput').attr('min', currentDate);
+				
+				    // Validate the date input on form submission
+				    $('form').on('submit', function(event) {
+				      var dateInput = $('#dateInput').val();
+				
+				      if (dateInput < currentDate) {
+				        event.preventDefault(); // Prevent form submission
+				        $('#dateInput').addClass('is-invalid'); // Add Bootstrap's is-invalid class to display validation error
+				      }
+				    });
+				  </script>
+            
+            
+             <div class="form-group">
+                <label for="time">Select Your Bus Timing</label>
+                
+                <select class="form-control"   id="time" name="time"  th:field="*{time}" required>
+                    <option value="06:00 AM-(Morning)">06:00 AM(Morning)</option>
+                    <option value="09:00 AM-(Morning)">09:00 AM(Morning)</option>
+                    
+                    <option value="01:00 PM-(Afternoon)">01:00 PM(Afternoon)</option>
+                    <option value="04:00 PM-(Evening)">04:00 PM(Evening)</option>
+                    <option value="08:00 PM-(Night)">08:00 PM(Night)</option>
+                    <option value="11:00 PM-(Night)">11:00 PM(Night)</option>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comfortLevel">Select Comfort Level:</label>
+                <select class="form-control" id="comfortLevel" name="comfortLevel" th:field="*{comfortLevel}" required>
+                    <option value="Economy: (Vithai)">Economy: (Vithai)</option>
+                    <option value="Business: (Shivshahi)">Business: (Shivshahi)</option>
+                    <option value="First Class: (Ashavmegh)">First Class: (Ashavmegh)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" >Submit your shedule</button>
+         </form>
+         
+         <div class="form-group mt-2">
+                 <form th:action="@{/payment}" method="post"  th:object="${booking}" >
+			            <button type="submit" class="btn btn-primary" >payment</button>
+			     </form>
+                
+        </div>
+         
+   </div>
+   
+   
+   
+    
+		 <div id="runningLabelCarousel" class="carousel slide" data-ride="carousel">
+		    <div class="carousel-inner">
+		      <div class="carousel-item active">
+		        <div class="running-label">Shiv-Shahi</div>
+		      </div>
+		      <div class="carousel-item">
+		        <div class="running-label">Shivneri</div>
+		      </div>
+		      <div class="carousel-item">
+		        <div class="running-label">E-Shivneri</div>
+		      </div>
+		    </div>
+		  </div>
+		  
+ 
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="/image/bus.png" alt="Image 1" class="animated-image">
+          <div class="image-overlay">
+            <a href="https://example.com">E-Shivneri</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="/image/bus2.png" alt="Image 2" class="animated-image">
+          <div class="image-overlay">
+            <a href="https://example.com">Shivshahi</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="/image/bus4.png" alt="Image 3" class="animated-image">
+          <div class="image-overlay">
+            <a href="https://example.com">Hirkani</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="image-container">
+          <img src="/image/bus3.png" alt="Image 4" class="animated-image">
+          <div class="image-overlay">
+            <a href="https://example.com">Ashavmegha</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+   
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+  
+</body>
+</html>
+

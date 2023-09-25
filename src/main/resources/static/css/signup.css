@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+
+
+
+ 
+.navbar {
+    padding: 10px 20px;
+    height:150px;
+    letter-spacing:2px;
+}
+/* navbar.css */
+
+.navbar-brand {
+    font-size: 42px;
+    transition: color 0.1s;
+    letter-spacing:8px;
+   font-weight:blod;
+}
+
+.navbar-brand:hover {
+    color: skyblue;
+    font-size: 44px;
+    letter-spacing:8px;
+    
+}
+
+
+.navbar-nav .nav-item .nav-link {
+    color:  #87CEEB;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #f00;
+}
+.custom-input{
+	width:22rem;
+	align-self:center;
+     background-color: rgba(0, 0, 0, 0.7);
+    color:white;
+      border: none; 
+     padding: 5px;
+     border-radius:1rem;
+}
+textarea::placeholder {
+    color: white; 
+    font-size:1rem;
+   font-weight:5rem;
+   letter-spacing:5px;/* Replace #FF0000 with your desired color */
+}
+ 
+  input::placeholder{
+  color:white;
+  font-size:1rem;
+   font-weight:5rem;
+   letter-spacing:5px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

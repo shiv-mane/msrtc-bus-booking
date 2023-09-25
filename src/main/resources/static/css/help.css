@@ -1,0 +1,45 @@
+
+/* navbar.css */
+
+@charset "ISO-8859-1";
+.navbar {
+    padding: 10px 20px;
+    height:200px;
+    letter-spacing:2px;
+    
+   font-size:20px;
+   
+    
+}
+/* navbar.css */
+
+.navbar-brand {
+    font-size: 42px;
+    transition: color 0.1s;
+    letter-spacing:8px;
+   font-weight:blod;
+    color: skyblue;
+}
+
+
+.navbar-brand:hover {
+    color: skyblue;
+    font-size: 44px;
+    letter-spacing:8px;
+    
+}
+
+
+.navbar-nav .nav-item .nav-link {
+    color:  white;
+    background:linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.5));
+    transition: color 0.3s;
+    letter-spacing:3px;
+    padding:8px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #f00;
+}
+
+ 
